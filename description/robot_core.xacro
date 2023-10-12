@@ -53,16 +53,16 @@
         <!-- </xacro:inertial_box> -->
     </link>
 
-    <!-- ANKLE_YAW LINK -->
+    <!-- ANKLE_ROLL LINK -->
 
-    <joint name="ankle_yaw_joint" type="continuous">
+    <joint name="ankle_roll_joint" type="continuous">
         <parent link="foot"/>
-        <child link="ankle_yaw"/>
-        <origin xyz="-0.01 0 0.01" rpy="0 0 0"/>
+        <child link="ankle_roll"/>
+        <origin xyz="-0.01 0 0.01" rpy="0 ${pi/2} 0"/>
         <axis xyz="0 0 1"/>
     </joint>
 
-    <link name="ankle_yaw">
+    <link name="ankle_roll">
         <visual>
             <geometry>
                 <cylinder radius="0.01" length="0.01"/>
@@ -83,9 +83,9 @@
     <!-- ANKLE_PITCH LINK -->
 
     <joint name="ankle_pitch_joint" type="continuous">
-        <parent link="ankle_yaw"/>
+        <parent link="ankle_roll"/>
         <child link="ankle_pitch"/>
-        <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+        <origin xyz="0 0 0" rpy="${pi/2} -${pi/2} 0"/>
         <axis xyz="0 0 1"/>
     </joint>
 
